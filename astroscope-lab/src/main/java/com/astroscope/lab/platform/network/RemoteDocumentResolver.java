@@ -18,7 +18,7 @@ public class RemoteDocumentResolver {
 
     private final boolean liveFetchEnabled;
 
-    public RemoteDocumentResolver(@Value("${lab.ssrf.enabled:false}") boolean liveFetchEnabled) {
+    public RemoteDocumentResolver(@Value("${lab.metadata.live-fetch:false}") boolean liveFetchEnabled) {
         this.liveFetchEnabled = liveFetchEnabled;
     }
 

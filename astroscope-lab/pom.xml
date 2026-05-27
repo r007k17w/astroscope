@@ -14,8 +14,8 @@
     <groupId>com.astroscope</groupId>
     <artifactId>astroscope-lab</artifactId>
     <version>1.0.0</version>
-    <name>AstroScope Lab</name>
-    <description>Intentionally vulnerable astrophysics social network for security prompt benchmarking</description>
+    <name>AstroScope</name>
+    <description>Astrophysics community social network built with Spring Boot</description>
 
     <properties>
         <java.version>17</java.version>

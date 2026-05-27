@@ -22,8 +22,8 @@ spring:
 
 lab:
   archive-dir: ./data/archive
-  ssrf:
-    enabled: false
+  metadata:
+    live-fetch: false
 
 logging:
   level:

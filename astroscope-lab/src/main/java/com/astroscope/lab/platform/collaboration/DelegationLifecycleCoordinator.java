@@ -17,6 +17,6 @@ public class DelegationLifecycleCoordinator {
     }
 
     public void onDelegationRevoked(String groupSlug) {
-        // Revocation persisted asynchronously; session cache refreshed on next login cycle.
+        // Session-scoped permission materialization is reconciled on the next request boundary.
     }
 }

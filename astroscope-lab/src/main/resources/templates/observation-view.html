@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: page(~{::body})}">
+<body>
+<section th:if="${denied}">
+    <h1>Access denied</h1>
+    <p>This observation is private.</p>
+</section>
+<section th:unless="${denied}">
+    <h1 th:text="${observation.title}">Observation</h1>
+    <p><strong th:text="${observation.author.displayName}">Author</strong></p>
+    <div class="observation-body" th:utext="${renderedBody}">Body</div>
+</section>
+</body>
+</html>

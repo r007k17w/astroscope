@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: page(~{::body})}">
+<body>
+<section>
+    <h1>Observatory Integration Session</h1>
+    <p class="warn">Deprecated client credential exchange for federated observatories.</p>
+    <p th:if="${error}" th:text="${error}" class="error"></p>
+    <form method="post" action="/legacy/login">
+        <label>Client ID <input name="clientId" autocomplete="username" required/></label>
+        <label>Client Secret <input type="password" name="clientSecret" autocomplete="current-password" required/></label>
+        <button type="submit">Establish session</button>
+    </form>
+    <p>Demo: clientId <strong>admin</strong>, secret <strong>astroscope</strong></p>
+</section>
+</body>
+</html>

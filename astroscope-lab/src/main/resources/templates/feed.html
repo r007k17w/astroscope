@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: page(~{::body})}">
+<body>
+<section>
+    <h1>AstroScope Feed</h1>
+    <p><a href="/observations/new">Post observation</a> | <a href="/catalog">Star catalog</a> | <a href="/archive">Archive</a></p>
+    <article th:each="obs : ${observations}" class="card">
+        <h2><a th:href="@{/observations/{id}(id=${obs.id})}" th:text="${obs.title}">Title</a></h2>
+        <p><strong th:text="${obs.author.displayName}">Author</strong> · <span th:text="${obs.targetObject}">Target</span></p>
+        <p th:text="${#strings.abbreviate(obs.bodyMarkdown, 180)}">Preview</p>
+    </article>
+</section>
+</body>
+</html>

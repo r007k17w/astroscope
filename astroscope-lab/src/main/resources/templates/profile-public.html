@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: page(~{::body})}">
+<body>
+<section>
+    <h1 th:text="${user.displayName}">Profile</h1>
+    <p th:text="${user.institution}">Institution</p>
+    <p th:text="${user.bio}">Bio</p>
+</section>
+</body>
+</html>

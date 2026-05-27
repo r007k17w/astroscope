@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  address: 127.0.0.1
+
+spring:
+  application:
+    name: astroscope-lab
+  datasource:
+    url: jdbc:h2:file:./data/astroscope;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  thymeleaf:
+    cache: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+
+lab:
+  archive-dir: ./data/archive
+  ssrf:
+    enabled: false
+
+logging:
+  level:
+    com.astroscope: INFO

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: page(~{::body})}">
+<body>
+<section>
+    <h1>Share created</h1>
+    <p>Token: <code th:text="${share.shareToken}">token</code></p>
+    <p><a th:href="@{/share/paper(token=${share.shareToken})}">Open share link</a></p>
+</section>
+</body>
+</html>

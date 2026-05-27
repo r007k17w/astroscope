@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: page(~{::body})}">
+<body>
+<section>
+    <h1>Sign in to AstroScope</h1>
+    <p class="warn">Vulnerable lab instance — localhost only.</p>
+    <p>Demo accounts: <strong>admin</strong>, <strong>nova</strong>, <strong>kepler</strong>, <strong>guest</strong> — password <strong>astroscope</strong></p>
+    <form method="post" action="/login">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        <label>Username <input name="username" autocomplete="username" required/></label>
+        <label>Password <input type="password" name="password" autocomplete="current-password" required/></label>
+        <button type="submit">Login</button>
+    </form>
+    <p th:if="${param.error}">Invalid username or password.</p>
+    <p th:if="${param.logout}">You have been logged out.</p>
+    <p><a href="/legacy/login">Observatory integration login</a></p>
+</section>
+</body>
+</html>

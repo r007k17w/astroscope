@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: page(~{::body})}">
+<body>
+<section>
+    <h1 th:text="${share.title}">Paper</h1>
+    <p th:text="${share.abstractText}">Abstract</p>
+    <p>Shared by <span th:text="${share.owner.displayName}">Owner</span></p>
+</section>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: page(~{::body})}">
+<body>
+<section>
+    <h1>Telescope Archive</h1>
+    <form method="post" action="/archive/upload" enctype="multipart/form-data">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        <label>Image file <input type="file" name="file" required/></label>
+        <label>Caption <input name="caption"/></label>
+        <button type="submit">Upload</button>
+    </form>
+    <ul>
+        <li th:each="img : ${images}">
+            <span th:text="${img.originalFilename}">file</span>
+            <a th:href="@{/archive/download/{id}(id=${img.id})}">Secure download</a>
+        </li>
+    </ul>
+    <p>Volume alias read: <code>/archive/volumes/read?relativeKey=...</code></p>
+</section>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>Import External Metadata</h1>
+    <form method="post">
+        <label>Metadata URL <input name="url" placeholder="https://api.nasa.gov/..."></label>
+        <button type="submit">Fetch</button>
+    </form>
+    {% if result %}<pre>{{ result }}</pre>{% endif %}
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+</section>
+{% endblock %}

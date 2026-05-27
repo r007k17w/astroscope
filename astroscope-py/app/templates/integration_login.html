@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>Observatory Integration Session</h1>
+    <form method="post">
+        <label>Client ID <input name="clientId" autocomplete="username" required></label>
+        <label>Client Secret <input type="password" name="clientSecret" autocomplete="current-password" required></label>
+        <button type="submit">Establish session</button>
+    </form>
+    <p>Demo: clientId <strong>admin</strong>, secret <strong>astroscope</strong></p>
+</section>
+{% endblock %}

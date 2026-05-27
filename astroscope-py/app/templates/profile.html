@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>Your Profile</h1>
+    <p>Username: {{ safe_username }}</p>
+    <form method="post">
+        <label>Display name <input name="display_name" value="{{ user.display_name }}"></label>
+        <label>Institution <input name="institution" value="{{ user.institution or '' }}"></label>
+        <label>Bio<textarea name="bio" rows="6">{{ user.bio or '' }}</textarea></label>
+        <button type="submit">Save</button>
+    </form>
+</section>
+{% endblock %}

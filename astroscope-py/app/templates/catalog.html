@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>Star Catalog</h1>
+    <form method="get">
+        <label>Query <input name="q" value="{{ query }}"></label>
+        <label>Ranking mode
+            <select name="ranking">
+                <option value="mag" {% if ranking == 'mag' %}selected{% endif %}>Magnitude</option>
+                <option value="name" {% if ranking == 'name' %}selected{% endif %}>Name</option>
+                <option value="designation" {% if ranking == 'designation' %}selected{% endif %}>Designation</option>
+            </select>
+        </label>
+        <button type="submit">Search</button>
+    </form>
+    <p>Ranking profile: {{ ranking }}</p>
+    <table>
+        <thead><tr><th>Designation</th><th>Name</th><th>Constellation</th><th>Mag</th></tr></thead>
+        <tbody>
+        {% for star in results %}
+        <tr>
+            <td>{{ star.designation }}</td>
+            <td>{{ star.common_name }}</td>
+            <td>{{ star.constellation }}</td>
+            <td>{{ star.magnitude }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

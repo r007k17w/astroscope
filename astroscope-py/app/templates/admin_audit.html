@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>Audit Trail</h1>
+    <pre>{% for entry in entries %}{{ entry }}
+{% endfor %}</pre>
+</section>
+{% endblock %}

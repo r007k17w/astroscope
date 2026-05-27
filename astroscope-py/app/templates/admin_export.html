@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>Admin User Export</h1>
+    <form method="post">
+        <label>Username prefix filter <input name="usernamePrefix" placeholder="kep"></label>
+        <button type="submit">Export CSV</button>
+    </form>
+</section>
+{% endblock %}

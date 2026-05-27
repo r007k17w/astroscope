@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>New Observation</h1>
+    <form method="post">
+        <label>Title <input name="title" required></label>
+        <label>Target object <input name="target_object"></label>
+        <label>Group slug <input name="group_slug" placeholder="ligo-collab"></label>
+        <label>Markdown body<textarea name="body" rows="10" required></textarea></label>
+        <label><input type="checkbox" name="is_private"> Private</label>
+        <button type="submit">Publish</button>
+    </form>
+</section>
+{% endblock %}

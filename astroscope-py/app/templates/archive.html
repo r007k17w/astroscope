@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>Telescope Archive</h1>
+    <form method="post" action="{{ url_for('web.archive_upload') }}" enctype="multipart/form-data">
+        <label>Image file <input type="file" name="file" required></label>
+        <label>Caption <input name="caption"></label>
+        <label>Companion restore (optional) <input name="companionRestore"></label>
+        <button type="submit">Upload</button>
+    </form>
+    <ul>
+        {% for img in images %}
+        <li>{{ img.original_filename }} —
+            <a href="{{ url_for('web.archive_download', image_id=img.id) }}">Download</a>
+            <a href="{{ url_for('web.archive_preview', image_id=img.id) }}">Preview</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <p>Volume alias read: <code>/archive/volumes/read?relativeKey=...</code></p>
+</section>
+{% endblock %}

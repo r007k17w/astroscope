@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>AstroScope Feed</h1>
+    <p><a href="{{ url_for('web.observation_new') }}">Post observation</a></p>
+    {% for obs in observations %}
+    <article class="card">
+        <h2><a href="{{ url_for('web.observation_view', obs_id=obs.id) }}">{{ obs.title }}</a></h2>
+        <p><strong>{{ obs.author.display_name }}</strong> · {{ obs.target_object or '' }}</p>
+        <p>{{ obs.body_markdown[:180] }}</p>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

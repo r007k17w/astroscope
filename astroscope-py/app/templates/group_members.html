@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>{{ group.name }} — Members</h1>
+    <p><a href="{{ url_for('web.group_view', slug=group.slug) }}">Back to group</a></p>
+    {% for snippet in snippets %}
+    <article class="card">
+        <h2>{{ snippet.display_name }} ({{ snippet.username }})</h2>
+        <div>{{ snippet.preview_html | safe }}</div>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

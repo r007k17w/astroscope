@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>{{ group.name }}</h1>
+    <p>{{ group.description }}</p>
+    {% if can_moderate %}<p>You can moderate this group.</p>{% endif %}
+    {% if message %}<p>{{ message }}</p>{% endif %}
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    <form method="post">
+        <input type="hidden" name="action" value="delegate">
+        <label>Delegate moderation to <input name="delegateUsername" placeholder="guest"></label>
+        <button type="submit">Grant delegation</button>
+    </form>
+    <form method="post">
+        <input type="hidden" name="action" value="revoke">
+        <label>Revoke delegate <input name="delegateUsername" placeholder="guest"></label>
+        <button type="submit">Revoke delegation</button>
+    </form>
+    <form method="post">
+        <input type="hidden" name="action" value="moderate">
+        <button type="submit">Run moderation action</button>
+    </form>
+    <p>Collaboration invite token: <code>{{ invite_token }}</code></p>
+    <p><a href="{{ url_for('web.group_members', slug=group.slug) }}">View member previews</a></p>
+    <p><a href="{{ url_for('web.group_member_search', slug=group.slug) }}">Search members</a></p>
+</section>
+{% endblock %}

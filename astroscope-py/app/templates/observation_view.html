@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+{% if denied %}
+<section><h1>Access denied</h1></section>
+{% else %}
+<section>
+    <h1>{{ observation.title }}</h1>
+    <p><strong>{{ observation.author.display_name }}</strong></p>
+    <div class="observation-body">{{ rendered_body | safe }}</div>
+</section>
+{% endif %}
+{% endblock %}

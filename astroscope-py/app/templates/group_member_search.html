@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>Member search — {{ slug }}</h1>
+    <form method="get">
+        <label>Handle fragment <input name="q" value="{{ query }}"></label>
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for handle in handles %}
+        <li>{{ handle.username }} (id={{ handle.id }})</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

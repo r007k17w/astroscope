@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>Share created</h1>
+    <p>Token: <code>{{ share.share_token }}</code></p>
+    <p>Share URL: <a href="{{ share_url }}">{{ share_url }}</a></p>
+    <p><a href="{{ url_for('web.share_paper', token=share.share_token) }}">Open share link</a></p>
+</section>
+{% endblock %}

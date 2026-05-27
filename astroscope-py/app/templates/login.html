@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <h1>Sign in to AstroScope</h1>
+    <p>Demo accounts: <strong>admin</strong>, <strong>nova</strong>, <strong>kepler</strong>, <strong>guest</strong> — password <strong>astroscope</strong></p>
+    <form method="post">
+        {% if next_target %}<input type="hidden" name="next" value="{{ next_target }}">{% endif %}
+        <label>Username <input name="username" autocomplete="username" required></label>
+        <label>Password <input type="password" name="password" autocomplete="current-password" required></label>
+        <button type="submit">Login</button>
+    </form>
+    <p><a href="{{ url_for('web.integration_session') }}">Observatory integration login</a></p>
+</section>
+{% endblock %}
